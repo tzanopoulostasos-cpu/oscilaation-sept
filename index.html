@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Διαγώνισμα Ταλαντώσεων Υψηλής Δυσκολίας | Φυσική Γ Λυκείου</title>
+    
+    <!-- ===== MATHJAX ===== -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<style>
+/* =========================================================
+   ΒΑΣΙΚΟ ΠΕΡΙΒΑΛΛΟΝ
+========================================================= */
+.physics-solutions {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 0 20px;
+  color: #1e293b;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.physics-solutions * {
+  box-sizing: border-box;
+}
+.physics-solutions p {
+  margin: 12px 0 16px;
+}
+.physics-solutions ul {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.physics-solutions li {
+  margin: 6px 0;
+}
+/* =========================================================
+   ΤΙΤΛΟΣ
+========================================================= */
+.physics-title {
+  text-align: center;
+  margin: 0 0 8px;
+  color: #0f2b4a;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.physics-subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 20px;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+/* =========================================================
+   ΕΙΣΑΓΩΓΙΚΟ ΠΛΑΙΣΙΟ
+========================================================= */
+.intro-box {
+  padding: 20px 24px;
+  margin: 0 0 36px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #1e4a7a;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.intro-box strong {
+  color: #0f2b4a;
+}
+/* =========================================================
+   ΕΝΟΤΗΤΕΣ
+========================================================= */
+.physics-solutions h2 {
+  margin: 48px 0 24px;
+  padding: 14px 18px;
+  color: #0f2b4a;
+  font-size: 26px;
+  line-height: 1.3;
+  border-left: 6px solid #1e4a7a;
+  background: linear-gradient(to right, #edf2f7, #fbfcfd);
+  border-radius: 0 10px 10px 0;
+  font-weight: 700;
+}
+.physics-solutions h3 {
+  margin: 30px 0 14px;
+  color: #1e4a7a;
+  font-size: 21px;
+  font-weight: 600;
+}
+/* =========================================================
+   ΚΑΡΤΑ ΠΡΟΒΛΗΜΑΤΟΣ
+========================================================= */
+.problem-card {
+  margin: 30px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease;
+}
+.problem-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+.problem-header {
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #f1f6fa, #fafcfd);
+  border-left: 6px solid #1e4a7a;
+  color: #0f2b4a;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+.statement {
+  padding: 20px 24px 12px;
+}
+.statement-title {
+  color: #1e4a7a;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+.choice-list {
+  margin: 12px 0 20px 28px;
+}
+.choice-list li {
+  margin: 8px 0;
+}
+.problem-figure {
+  margin: 20px auto 24px;
+  text-align: center;
+}
+.problem-figure img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 550px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+/* =========================================================
+   ΠΤΥΣΣΟΜΕΝΕΣ ΛΥΣΕΙΣ
+========================================================= */
+details.solution-details {
+  margin: 0 20px 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafcff;
+  transition: border-color 0.2s ease;
+}
+details.solution-details[open] {
+  border-color: #94a3b8;
+}
+details.solution-details summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 18px;
+  color: #0f2b4a;
+  font-weight: 700;
+  background: #f1f6fa;
+  user-select: none;
+  transition: background 0.2s ease;
+  font-size: 16px;
+}
+details.solution-details summary:hover {
+  background: #e8eef5;
+}
+details.solution-details summary::-webkit-details-marker {
+  display: none;
+}
+details.solution-details summary::before {
+ content: "\25B6"; 
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+  transition: transform 0.25s ease;
+  color: #1e4a7a;
+}
+details.solution-details[open] summary::before {
+  transform: rotate(90deg);
+}
+.solution-body {
+  padding: 18px 22px 10px;
+  background: #ffffff;
+}
+.solution-body h3 {
+  margin-top: 6px;
+}
+/* =========================================================
+   ΕΡΩΤΗΜΑ
+========================================================= */
+.question {
+  margin: 25px 0;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+.question-title {
+  margin-bottom: 14px;
+  color: #0f2b4a;
+  font-size: 19px;
+  font-weight: 700;
+}
+/* =========================================================
+   ΜΑΘΗΜΑΤΙΚΕΣ ΣΧΕΣΕΙΣ
+========================================================= */
+.math-box {
+  margin: 20px 0;
+  padding: 16px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-align: center;
+  overflow-x: auto;
+  font-size: 17px;
+}
+.result-box {
+  margin: 22px 0;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border: 1px solid #bfd7ea;
+  border-radius: 10px;
+  text-align: center;
+  color: #0f2b4a;
+  font-weight: 600;
+  font-size: 18px;
+}
+.result-box strong {
+  color: #0f2b4a;
+}
+/* =========================================================
+   ΠΛΑΙΣΙΑ ΠΡΟΣΟΧΗΣ & ΙΔΕΑΣ
+========================================================= */
+.attention-box {
+  margin: 24px 0;
+  padding: 18px 22px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 5px solid #d97706;
+  border-radius: 10px;
+}
+.attention-title {
+  margin-bottom: 8px;
+  color: #92400e;
+  font-weight: 700;
+}
+.idea-box {
+  margin: 26px 0;
+  padding: 20px 24px;
+  background: #f0f7ff;
+  border: 1px solid #bfd7ea;
+  border-radius: 12px;
+}
+.idea-title {
+  margin-bottom: 8px;
+  color: #1e4a7a;
+  font-weight: 700;
+  font-size: 18px;
+}
+/* =========================================================
+   ΠΙΝΑΚΕΣ
+========================================================= */
+.physics-solutions table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.physics-solutions th,
+.physics-solutions td {
+  padding: 11px 14px;
+  border: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+.physics-solutions th {
+  background: #edf2f7;
+  color: #0f2b4a;
+  font-weight: 700;
+  text-align: left;
+}
+.physics-solutions tr:nth-child(even) {
+  background: #fafcfd;
+}
+/* =========================================================
+   ΔΙΑΧΩΡΙΣΤΙΚΟ
+========================================================= */
+.solution-divider {
+  height: 2px;
+  margin: 40px 0;
+  background: linear-gradient(to right, transparent, #dce1e6, transparent);
+  border: none;
+}
+/* =========================================================
+   ΕΙΣΑΓΩΓΙΚΟ ΤΜΗΜΑ ΕΝΟΤΗΤΑΣ
+========================================================= */
+.section-intro {
+  margin: 20px 0 28px;
+  padding: 20px 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #1e4a7a;
+  border-radius: 12px;
+}
+.section-intro .problem-figure {
+  margin-bottom: 8px;
+}
+/* =========================================================
+   ΠΕΡΙΕΧΟΜΕΝΟ ΠΟΥ ΚΡΥΒΕΤΑΙ / ΕΜΦΑΝΙΖΕΤΑΙ
+========================================================= */
+.hidden-content {
+  display: none;
+  animation: fadeSlideIn 0.6s ease forwards;
+}
+.hidden-content.visible {
+  display: block;
+}
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================================================
+   ΚΟΥΜΠΙ ΣΥΝΕΧΕΙΑΣ
+========================================================= */
+.continue-wrapper {
+  text-align: center;
+  margin: 30px 0 10px;
+}
+.continue-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #1e4a7a, #0f2b4a);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(30, 74, 122, 0.35);
+  font-family: inherit;
+}
+.continue-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(30, 74, 122, 0.45);
+  background: linear-gradient(135deg, #255a92, #143a5e);
+}
+.continue-btn:active {
+  transform: scale(0.98);
+}
+.continue-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+.continue-btn:hover svg {
+  transform: translateX(4px);
+}
+/* =========================================================
+   ΚΟΥΜΠΙΑ ΛΗΨΗΣ (στο τέλος)
+========================================================= */
+.download-section {
+  margin: 40px 0 30px;
+  padding: 30px 24px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  text-align: center;
+}
+.download-section-title {
+  color: #0f2b4a;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.download-section-subtitle {
+  color: #64748b;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.download-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  font-family: inherit;
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.download-btn:active {
+  transform: translateY(0);
+}
+.download-btn.word {
+  background: linear-gradient(135deg, #2b5797, #1a3a6b);
+  color: white;
+}
+.download-btn.word:hover {
+  background: linear-gradient(135deg, #3a6bb5, #2b5797);
+}
+.download-btn.pdf {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: white;
+}
+.download-btn.pdf:hover {
+  background: linear-gradient(135deg, #e53935, #d32f2f);
+}
+.download-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.download-btn .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+/* =========================================================
+   ΚΟΥΜΠΙ ΕΠΙΣΤΡΟΦΗΣ ΣΤΗΝ ΚΟΡΥΦΗ
+========================================================= */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e4a7a, #0f2b4a);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 16px rgba(30, 74, 122, 0.35);
+  cursor: pointer;
+  font-size: 22px;
+  transition: all 0.3s ease;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.back-to-top:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(30, 74, 122, 0.45);
+}
+.back-to-top.visible {
+  display: flex;
+}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 700px) {
+  .physics-solutions {
+    padding: 0 12px;
+    font-size: 16px;
+  }
+  .physics-title {
+    font-size: 26px;
+  }
+  .physics-subtitle {
+    font-size: 18px;
+  }
+  .physics-solutions h2 {
+    font-size: 22px;
+    padding: 12px 14px;
+  }
+  .physics-solutions h3 {
+    font-size: 19px;
+  }
+  .problem-header {
+    font-size: 17px;
+    padding: 14px 16px;
+  }
+  .statement {
+    padding: 14px 16px 8px;
+  }
+  details.solution-details {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  .solution-body {
+    padding: 14px 16px 8px;
+  }
+  .question {
+    padding: 16px;
+  }
+  .math-box {
+    font-size: 15px;
+    padding: 12px 8px;
+  }
+  .physics-solutions table {
+    font-size: 14px;
+  }
+  .physics-solutions th,
+  .physics-solutions td {
+    padding: 8px 10px;
+  }
+  .result-box {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+  .intro-box,
+  .section-intro,
+  .idea-box,
+  .attention-box {
+    padding: 16px 18px;
+  }
+  .choice-list {
+    margin-left: 20px;
+  }
+  .continue-btn {
+    padding: 14px 24px;
+    font-size: 17px;
+    width: 100%;
+    justify-content: center;
+  }
+  .download-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+    flex: 1;
+    justify-content: center;
+    min-width: 120px;
+  }
+  .download-buttons {
+    gap: 10px;
+  }
+  .download-section {
+    padding: 20px 16px;
+  }
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+}
+/* =========================================================
+   ΑΠΟΦΥΓΗ ΠΡΟΒΛΗΜΑΤΩΝ ΜΕ MATHJAX
+========================================================= */
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 4px 0;
+}
+/* =========================================================
+   ΕΠΙΠΛΕΟΝ ΒΕΛΤΙΩΣΕΙΣ
+========================================================= */
+.physics-solutions .note {
+  font-style: italic;
+  color: #64748b;
+  font-size: 15px;
+  margin-top: 8px;
+}
+.physics-solutions .footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #f1f5f9;
+  line-height: 1.6;
+}
+.physics-solutions .footer strong {
+  color: #475569;
+}
+/* Εκτύπωση - απόκρυψη κουμπιών */
+@media print {
+  .continue-wrapper,
+  .continue-btn,
+  .download-section,
+  .download-buttons,
+  .download-btn,
+  .back-to-top {
+    display: none !important;
+  }
+  .hidden-content {
+    display: block !important;
+  }
+  .problem-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .physics-solutions {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+  </style>
+<div class="physics-solutions">
+<!-- ===== ΤΙΤΛΟΣ ===== -->
+<h1 class="physics-title">Διαγώνισμα Ταλαντώσεων Υψηλής Δυσκολίας</h1>
+<div class="physics-subtitle">Γραπτή εξέταση στη Φυσική Γ΄ Λυκείου — Ταλαντώσεις</div>
+<!-- ===== ΕΙΣΑΓΩΓΗ ===== -->
+<div class="intro-box">
+  <strong>Σεπτέμβριος 2026</strong>
+  <p>
+    Ένα απαιτητικό διαγώνισμα που συνοδεύεται από αναλυτικές λύσεις των θεμάτων,
+    με έμφαση όχι μόνο στην τελική απάντηση, αλλά και στη φυσική
+    σκέψη που οδηγεί σε αυτήν.
+  </p>
+</div>
+<!-- ============================================================ -->
+<!-- ===== ΘΕΜΑ Α — ΜΟΝΟ ΤΟ ΠΡΩΤΟ ΕΡΩΤΗΜΑ ΕΙΝΑΙ ΟΡΑΤΟ ===== -->
+<!-- ============================================================ -->
+<h2>ΘΕΜΑ Α — Πολλαπλής επιλογής και Σωστό / Λάθος</h2>
+<div class="problem-card">
+  <div class="problem-header">Α1</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>
+      Σώμα μάζας \(m\) πραγματοποιεί απλή αρμονική ταλάντωση πλάτους \(A\)
+      και περιόδου \(T\). Το σώμα είναι δεμένο στο άκρο ιδανικού ελατηρίου
+      σταθεράς \(k\), το άλλο άκρο του οποίου είναι στερεωμένο ακλόνητα σε οροφή.
+      Θετική φορά του κατακόρυφου άξονα έχει ληφθεί η προς τα πάνω
+      (αντίθετη της φοράς του βάρους του σώματος).
+      Κατά τη μετάβαση του σώματος από τη θέση
+      \(x_1=-A/2\) στη θέση \(x_2=+A/2\):
+    </p>
+    <ol class="choice-list">
+      <li>Το έργο της συνισταμένης δύναμης είναι θετικό.</li>
+      <li>Το έργο της δύναμης του ελατηρίου είναι αρνητικό.</li>
+      <li>Το έργο του βάρους είναι αντίθετο του έργου της δύναμης του ελατηρίου.</li>
+      <li>Το χρονικό διάστημα μετάβασης από τη μία θέση στην άλλη είναι ίσο με \(T/2\).</li>
+    </ol>
+    <p><strong>Να επιλέξετε τη σωστή απάντηση.</strong> (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>
+          Για την απλή αρμονική ταλάντωση η κινητική ενέργεια εξαρτάται
+          από το τετράγωνο της απομάκρυνσης:
+        </p>
+        <div class="math-box">
+          \[
+          K=E-\frac12Dx^2.
+          \]
+        </div>
+        <p>
+          Οι δύο θέσεις έχουν ίδιο μέτρο απομάκρυνσης:
+        </p>
+        <div class="math-box">
+          \[
+          x_1=-\frac A2, \qquad x_2=+\frac A2.
+          \]
+        </div>
+        <p>
+          Επομένως:
+        </p>
+        <div class="math-box">
+          \[
+          K_1=K_2 \Rightarrow \Delta K=0.
+          \]
+        </div>
+        <p>
+          Άρα το έργο της συνισταμένης δύναμης είναι μηδέν και όχι
+          θετικό. Η πρόταση α είναι <strong>Λάθος</strong>.
+        </p>
+        <p>
+          Για το κατακόρυφο ελατήριο η δύναμη του ελατηρίου και το βάρος
+          έχουν αντίθετα έργα στη συγκεκριμένη μετατόπιση. Επειδή
+        </p>
+        <div class="math-box">
+          \[
+          W_{\text{συν}}=W_{\text{ελ}}+W_g=0,
+          \]
+        </div>
+        <p>
+          προκύπτει:
+        </p>
+        <div class="math-box">
+          \[
+          \boxed{W_g=-W_{\text{ελ}}}.
+          \]
+        </div>
+        <p>
+          Άρα η πρόταση γ είναι <strong>Σωστή</strong>, ενώ η β είναι
+          <strong>Λάθος</strong>.
+        </p>
+        <p>
+          Η μετάβαση από \(-A/2\) σε \(+A/2\), όταν γίνεται χωρίς αλλαγή
+          φοράς της κίνησης, αντιστοιχεί σε μεταβολή φάσης \(2\pi/3\):
+        </p>
+        <div class="math-box">
+          \[
+          \Delta t = \frac{2\pi/3}{\omega} = \frac T3.
+          \]
+        </div>
+        <p>
+          Δεν είναι επομένως \(T/2\). Η πρόταση δ είναι <strong>Λάθος</strong>.
+        </p>
+        <div class="result-box">
+          <strong>Α1: γ.</strong>
+        </div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== ΚΟΥΜΠΙ ΣΥΝΕΧΕΙΑΣ ===== -->
+<div class="continue-wrapper">
+  <button class="continue-btn" onclick="showFullContent()">
+    <span>📖 Συνέχεια σε διαδραστική μορφή</span>
+    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+  </button>
+</div>
+<!-- ============================================================ -->
+<!-- ===== ΥΠΟΛΟΙΠΟ ΠΕΡΙΕΧΟΜΕΝΟ (ΚΡΥΦΟ ΑΡΧΙΚΑ) ===== -->
+<!-- ============================================================ -->
+<div class="hidden-content" id="fullContent">
+<!-- ===== Α2 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Α2</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>
+      Σώμα μάζας \(m\) πραγματοποιεί απλή αρμονική ταλάντωση πλάτους \(A\),
+      περιόδου \(T\) και σταθεράς ταλάντωσης \(D\). Κατά την απευθείας μετάβαση
+      του σώματος από τη θέση \(x_1>0\) στη θέση \(x_2\), με \(x_1&lt;x_2\),
+      στο σώμα δρα σταθερή δύναμη \(\vec F\) μέτρου \(F\), η οποία έχει τη
+      διεύθυνση της κίνησης. Η δύναμη αυτή αρχίζει να δρα όταν το σώμα φτάνει
+      στη θέση \(x_1\) και αποσύρεται ακαριαία όταν φτάνει στη θέση \(x_2\).
+    </p>
+    <ol class="choice-list">
+      <li>Το έργο της δύναμης \(\vec F\) είναι ίσο με τη μεταβολή της κινητικής ενέργειας του σώματος.</li>
+      <li>Το έργο της δύναμης επαναφοράς \(\vec F_{\mathrm{επ}}=-D\vec x\) είναι ίσο με τη μεταβολή της ενέργειας της ταλάντωσης.</li>
+      <li>Το έργο της συνισταμένης δύναμης κατά το χρονικό διάστημα άσκησης της \(\vec F\) είναι ίσο με τη μεταβολή της ενέργειας της ταλάντωσης.</li>
+      <li>Το έργο της δύναμης \(\vec F\) είναι ίσο με τη μεταβολή της ενέργειας της ταλάντωσης.</li>
+    </ol>
+    <p><strong>Να επιλέξετε τη σωστή απάντηση.</strong> (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Το έργο της συνισταμένης δύναμης είναι:</p>
+        <div class="math-box">\[ W_{\text{συν}}=\Delta K. \]</div>
+        <p>Επομένως το έργο της εξωτερικής δύναμης \(F\) δεν είναι γενικά ίσο με τη μεταβολή της κινητικής ενέργειας.</p>
+        <p>Η ενέργεια της ταλάντωσης μεταβάλλεται εξαιτίας του έργου της εξωτερικής δύναμης:</p>
+        <div class="math-box">\[ \boxed{W_F=\Delta E_{\text{ταλ}}}. \]</div>
+        <div class="result-box"><strong>Α2: δ.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Α3 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Α3</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>
+      Σώμα πραγματοποιεί απλή αρμονική ταλάντωση πλάτους \(A_0\).
+      Κάποια στιγμή αρχίζει να δρα στο σώμα δύναμη απόσβεσης
+      \(\vec F=-b\vec v\), οπότε το πλάτος της ταλάντωσης αρχίζει να μεταβάλλεται
+      σύμφωνα με τη σχέση \(A=A_0e^{-\Lambda t}\). Κατά την εξέλιξη της
+      ταλάντωσης με την παρουσία της δύναμης \(\vec F\):
+    </p>
+    <ol class="choice-list">
+      <li>Ο συντελεστής \(b\) μειώνεται.</li>
+      <li>Το έργο της δύναμης \(\vec F\) κατά τη μετάβαση από τη θέση \(x_1\) στη θέση \(x_2\) είναι ίσο με τη μεταβολή της ενέργειας ταλάντωσης.</li>
+      <li>Ο ρυθμός παραγωγής έργου από τη δύναμη \(\vec F\) είναι σταθερός.</li>
+      <li>Το έργο της δύναμης \(\vec F\) είναι αρνητικό μόνο κατά τις χρονικές περιόδους στις οποίες το σώμα επιβραδύνεται.</li>
+    </ol>
+    <p><strong>Να επιλέξετε τη σωστή απάντηση.</strong> (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Δίνεται:</p>
+        <div class="math-box">\[ A=A_0e^{-\Lambda t}. \]</div>
+        <p>Ο συντελεστής απόσβεσης \(b\) παραμένει σταθερός. Επομένως η α είναι <strong>Λάθος</strong>.</p>
+        <p>Το έργο της δύναμης απόσβεσης ισούται με τη μεταβολή της ενέργειας της ταλάντωσης:</p>
+        <div class="math-box">\[ \boxed{W_F=\Delta E_{\text{ταλ}}}. \]</div>
+        <p>Η πρόταση β είναι επομένως <strong>Σωστή</strong>.</p>
+        <p>Επίσης:</p>
+        <div class="math-box">\[ P_F=\vec F\cdot\vec v=-bv^2\leq0. \]</div>
+        <p>Η ισχύς δεν είναι σταθερή και η δύναμη απόσβεσης παράγει αρνητικό έργο σε όλη τη διάρκεια της κίνησης, όχι μόνο όταν το σώμα επιβραδύνεται.</p>
+        <div class="result-box"><strong>Α3: β.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Α4 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Α4</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>
+      Σώμα μάζας \(m\) εκτελεί εξαναγκασμένη ταλάντωση στερεωμένο στο άκρο
+      ιδανικού ελατηρίου σταθεράς \(k\). Στο σώμα δρα δύναμη απόσβεσης
+      \(\vec F=-b\vec v\), καθώς επίσης και εξωτερική περιοδική δύναμη
+      συχνότητας \(f_\delta\). Η ιδιοσυχνότητα του συστήματος είναι \(f_0\).
+      Αρχίζουμε να μεταβάλλουμε την τιμή της \(f_\delta\). Καθώς ο λόγος
+      \(f_\delta/f_0\) μειώνεται παραμένοντας μεγαλύτερος της μονάδας:
+    </p>
+    <ol class="choice-list">
+      <li>Το πλάτος της ταλάντωσης αρχικά αυξάνεται και στη συνέχεια μειώνεται.</li>
+      <li>Η περίοδος της ταλάντωσης αυξάνεται.</li>
+      <li>Η τιμή της ιδιοσυχνότητας αυξάνεται.</li>
+      <li>Το πλάτος της ταλάντωσης συνεχώς μειώνεται.</li>
+    </ol>
+    <p><strong>Να επιλέξετε τη σωστή απάντηση.</strong> (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Δίνεται ότι ο λόγος \(\frac{f_\delta}{f_0}\) μειώνεται, αλλά παραμένει μεγαλύτερος από τη μονάδα. Άρα η συχνότητα του διεγέρτη μειώνεται.</p>
+        <p>Εφόσον</p>
+        <div class="math-box">\[ T_\delta=\frac1{f_\delta}, \]</div>
+        <p>η περίοδος αυξάνεται.</p>
+        <div class="result-box"><strong>Α4: β.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Α5 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Α5</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p><strong>Να γράψετε στο τετράδιό σας το γράμμα κάθε πρότασης και δίπλα σε κάθε γράμμα τη λέξη «Σωστό» για τη σωστή πρόταση και τη λέξη «Λάθος» για τη λανθασμένη.</strong></p>
+    <ol class="choice-list">
+      <li>Σώμα εκτελεί απλή αρμονική ταλάντωση. Ο ρυθμός παραγωγής έργου από τη συνισταμένη δύναμη επαναφοράς είναι θετικός στις χρονικές περιόδους στις οποίες το μέτρο της συνισταμένης δύναμης μειώνεται.</li>
+      <li>Σώμα εκτελεί φθίνουσα γραμμική ταλάντωση στην οποία το πλάτος μεταβάλλεται σύμφωνα με \(A=A_0e^{-\Lambda t}\). Η μονάδα της ποσότητας \(\Lambda\) στο S.I. είναι το \(1\,s\).</li>
+      <li>Σε μια εξαναγκασμένη ταλάντωση, στη διάρκεια της οποίας στο σώμα δρα και δύναμη απόσβεσης της μορφής \(\vec F=-b\vec v\), αυξάνουμε τον συντελεστή απόσβεσης \(b\), διατηρώντας τη συχνότητα του διεγέρτη σταθερή. Το πλάτος της ταλάντωσης μειώνεται.</li>
+      <li>Σε μια απλή αρμονική ταλάντωση η κινητική ενέργεια μεταβάλλεται περιοδικά με τον χρόνο.</li>
+      <li>Σε μια απλή αρμονική ταλάντωση η κινητική ενέργεια εξισώνεται με τη δυναμική ενέργεια ταλάντωσης τέσσερις φορές στη διάρκεια μιας περιόδου.</li>
+    </ol>
+    <p>(Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <table>
+          <tr><th>Πρόταση</th><th>Απάντηση</th></tr>
+          <tr><td>α</td><td><strong>Σωστό.</strong><br>\(P=Fv.\) Κατά την κίνηση προς τη θέση ισορροπίας, το μέτρο της δύναμης μειώνεται και η δύναμη έχει την ίδια φορά με την ταχύτητα.</td></tr>
+          <tr><td>β</td><td><strong>Λάθος.</strong><br>Από \(A=A_0e^{-\Lambda t}\) προκύπτει ότι η \(\Lambda\) έχει μονάδα \(s^{-1}\), και όχι \(s\).</td></tr>
+          <tr><td>γ</td><td><strong>Σωστό.</strong><br>Αύξηση του \(b\), με σταθερή συχνότητα διεγέρτη, μειώνει το πλάτος της εξαναγκασμένης ταλάντωσης.</td></tr>
+          <tr><td>δ</td><td><strong>Σωστό.</strong><br>\(K=\frac12mv^2\) και η ταχύτητα μεταβάλλεται περιοδικά.</td></tr>
+          <tr><td>ε</td><td><strong>Σωστό.</strong><br>\(K=U\) όταν \(|x|=\frac{A}{\sqrt2}\). Η θέση αυτή εμφανίζεται τέσσερις φορές σε μία περίοδο.</td></tr>
+        </table>
+      </div>
+    </div>
+  </details>
+</div>
+<h2>ΘΕΜΑ Β</h2>
+<!-- ===== Β1α ===== -->
+<div class="problem-card">
+  <div class="problem-header">Β1α</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Ιδανικό ελατήριο σταθεράς \(k\) είναι κατακόρυφο και έχει το κάτω άκρο του στερεωμένο στο δάπεδο. Στο επάνω ελεύθερο άκρο του ελατηρίου τοποθετούμε σώμα \(Σ_1\) μάζας \(m_1=2m\), χωρίς αρχική ταχύτητα, και το αφήνουμε να κινηθεί. Τη στιγμή κατά την οποία το \(Σ_1\) ηρεμεί στιγμιαία για πρώτη φορά τοποθετούμε κατάλληλα πάνω του δεύτερο σώμα \(Σ_2\) μάζας \(m_2=m\).</p>
+    <p>Ο λόγος του διαστήματος που διάνυσε το σώμα \(Σ_1\) μέχρι να ηρεμήσει στιγμιαία για πρώτη φορά, προς το διάστημα που διανύει το σύστημα των δύο σωμάτων \((Σ_1-Σ_2)\), θεωρούμενα ως ένα ενιαίο σώμα, μέχρι να ηρεμήσει στιγμιαία για πρώτη φορά, είναι ίσος με:</p>
+    <ol class="choice-list"><li>2</li><li>3</li><li>4</li></ol>
+    <p>Ι. Να επιλέξετε τη σωστή απάντηση. (Μονάδα 1)<br>ΙΙ. Να αιτιολογήσετε την απάντησή σας. (Μονάδες 3)</p>
+    <figure class="problem-figure"><img src="https://i.imgur.com/AeNksEb.png" alt="Σχήμα — Β1α" loading="lazy">
+   
+    </figure>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για το \(Σ_1\), με μάζα \(m_1=2m\), η παραμόρφωση ισορροπίας είναι:</p>
+        <div class="math-box">\[ \Delta l_1=\frac{2mg}{k}. \]</div>
+        <p>Επειδή το σώμα αφήνεται από τη θέση φυσικού μήκους του ελατηρίου, το πλάτος της πρώτης ταλάντωσης είναι:</p>
+        <div class="math-box">\[ A_1=\frac{2mg}{k}. \]</div>
+        <p>Στην πρώτη ακραία θέση:</p>
+        <div class="math-box">\[ l_1=2A_1=\frac{4mg}{k}. \]</div>
+        <p>Με την τοποθέτηση του \(Σ_2\), η συνολική μάζα γίνεται \(3m\), οπότε η νέα θέση ισορροπίας αντιστοιχεί σε:</p>
+        <div class="math-box">\[ \Delta l_2=\frac{3mg}{k}. \]</div>
+        <p>Η αρχική θέση της δεύτερης ταλάντωσης απέχει από τη νέα θέση ισορροπίας:</p>
+        <div class="math-box">\[ A_2=\frac{4mg}{k}-\frac{3mg}{k}=\frac{mg}{k}. \]</div>
+        <p>Η δεύτερη ακραία θέση είναι:</p>
+        <div class="math-box">\[ l_2=\frac{3mg}{k}-\frac{mg}{k}=\frac{2mg}{k}. \]</div>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ s_1=\frac{4mg}{k}, \qquad s_2=\frac{2mg}{k}. \]</div>
+        <div class="result-box">\[ \boxed{\frac{s_1}{s_2}=2} \]<strong>Β1α: α.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Β1β ===== -->
+<div class="problem-card">
+  <div class="problem-header">Β1β</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Τη στιγμή κατά την οποία μηδενίζεται για πρώτη φορά η ταχύτητα του ενιαίου σώματος \((Σ_1-Σ_2)\), αποσύρουμε το σώμα \(Σ_2\). Αμέσως μετά το σώμα \(Σ_1\):</p>
+    <ol class="choice-list"><li>θα κινηθεί προς τα πάνω</li><li>θα παραμείνει ακίνητο</li><li>θα κινηθεί προς τα κάτω</li></ol>
+    <p>Ι. Να επιλέξετε τη σωστή απάντηση. (Μονάδα 1)<br>ΙΙ. Να αιτιολογήσετε την απάντησή σας. (Μονάδες 3)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Όταν το ενιαίο σώμα σταματήσει για πρώτη φορά, βρίσκεται στη θέση:</p>
+        <div class="math-box">\[ l=\frac{2mg}{k}. \]</div>
+        <p>Αν αφαιρέσουμε το \(Σ_2\), η θέση αυτή είναι ακριβώς η θέση ισορροπίας του \(Σ_1\), αφού:</p>
+        <div class="math-box">\[ \Delta l_{\text{ισ},1}=\frac{2mg}{k}. \]</div>
+        <p>Επιπλέον, εκείνη τη στιγμή η ταχύτητα είναι μηδενική. Άρα το \(Σ_1\) παραμένει ακίνητο.</p>
+        <div class="result-box"><strong>Β1β: β.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Β2 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Β2</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Ιδανικό ελατήριο σταθεράς \(k\) είναι κατακόρυφο και έχει το κάτω άκρο του στερεωμένο στο δάπεδο. Στο επάνω ελεύθερο άκρο του ελατηρίου τοποθετούμε σώμα \(Σ_1\) μάζας \(m_1\) και πάνω από αυτό, σε απλή επαφή, δεύτερο σώμα \(Σ_2\) μάζας \(m_2\). Τα δύο σώματα μεταφέρονται στη θέση όπου το συνολικό βάρος των δύο σωμάτων είναι ίσο με τη δύναμη του ελατηρίου. Στην κατάσταση αυτή η παραμόρφωση του ελατηρίου είναι \(\Delta l_0\). Κάποια στιγμή ασκούμε στο σώμα \(Σ_2\) σταθερή κατακόρυφη δύναμη \(\vec F\), μέτρου \(F\), με φορά προς τα κάτω, και μέχρι τη θέση στην οποία μηδενίζεται η ταχύτητα των δύο σωμάτων.</p>
+    <p>Αμέσως μετά τον μηδενισμό της ταχύτητας η δύναμη \(\vec F\) αποσύρεται και το σύστημα των δύο σωμάτων αρχίζει να εκτελεί απλή αρμονική ταλάντωση, στην οποία οριακά δεν χάνεται η επαφή τους. Συμβολίζουμε με \(E_1\) την ενέργεια ταλάντωσης του συστήματος των δύο σωμάτων. Αν η δύναμη \(\vec F\) δεν αποσυρθεί αλλά παραμείνει διαρκώς ασκούμενη στο σύστημα των δύο σωμάτων, τότε τα δύο σώματα θεωρούμενα ως ένα εκτελούν απλή αρμονική ταλάντωση με ενέργεια ταλάντωσης \(E_2\). Ο λόγος \(E_1/E_2\) έχει τιμή:</p>
+    <ol class="choice-list"><li>\(9/4\)</li><li>4</li><li>\(1/4\)</li></ol>
+    <p>Ι. Να επιλέξετε τη σωστή απάντηση. (Μονάδα 2)<br>ΙΙ. Να αιτιολογήσετε την απάντησή σας. (Μονάδες 9)</p>
+    <figure class="problem-figure"><img src="https://i.imgur.com/3hdxhyO.png" alt="Σχήμα — Β2" loading="lazy"></figure>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Θέτουμε:</p>
+        <div class="math-box">\[ M=m_1+m_2. \]</div>
+        <p>Στην οριακή περίπτωση κατά την οποία δεν χάνεται η επαφή, στην ανώτερη ακραία θέση η δύναμη επαφής μηδενίζεται. Το πάνω σώμα έχει τότε επιτάχυνση \(g\) προς τα κάτω.</p>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ \omega^2A_1=g. \]</div>
+        <p>Επειδή \(\omega^2=\frac{k}{M}\), προκύπτει:</p>
+        <div class="math-box">\[ A_1=\frac{Mg}{k}=\Delta l_0. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ E_1=\frac12k\Delta l_0^2. \]</div>
+        <p>Κατά την άσκηση της δύναμης \(F\), το σώμα μετακινείται προς τα κάτω και σταματά στην ακραία θέση. Η νέα θέση ισορροπίας, όσο η \(F\) παραμένει ασκούμενη, μετατοπίζεται κατά:</p>
+        <div class="math-box">\[ \frac Fk. \]</div>
+        <p>Από την ενέργεια, η ακραία θέση βρίσκεται σε απόσταση \(2F/k\) από την αρχική θέση ισορροπίας. Επομένως:</p>
+        <div class="math-box">\[ A_1=\frac{2F}{k}. \]</div>
+        <p>Με \(A_1=\Delta l_0\):</p>
+        <div class="math-box">\[ \boxed{F=\frac{k\Delta l_0}{2}}. \]</div>
+        <p>Αν η δύναμη \(F\) δεν αποσυρθεί, η νέα θέση ισορροπίας μετατοπίζεται κατά \(\Delta l_0/2\), ενώ το πλάτος γίνεται:</p>
+        <div class="math-box">\[ A_2=\frac{\Delta l_0}{2}. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ E_2=\frac12k\left(\frac{\Delta l_0}{2}\right)^2=\frac14E_1. \]</div>
+        <div class="result-box">\[ \boxed{\frac{E_1}{E_2}=4} \]<strong>Β2: β.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Β3 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Β3</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Σώμα \(Σ\) μάζας \(m\) είναι δεμένο στο άκρο ιδανικού ελατηρίου σταθεράς \(k\). Το ελατήριο είναι κατακόρυφο και το άλλο άκρο του είναι στερεωμένο ακλόνητα σε οροφή. Το σώμα τίθεται σε απλή αρμονική ταλάντωση πλάτους \(A\). Το διάγραμμα της αλγεβρικής τιμής της δύναμης την οποία ασκεί το ελατήριο στο σώμα σε συνάρτηση με την απομάκρυνση \(x\) από τη θέση ισορροπίας είναι το διπλανό.</p>
+    <p>Η ενέργεια ταλάντωσης είναι ίση με:</p>
+    <ol class="choice-list"><li>6 J</li><li>12 J</li><li>24 J</li></ol>
+    <p>Ι. Να επιλέξετε τη σωστή απάντηση. (Μονάδα 2)<br>ΙΙ. Να αιτιολογήσετε την απάντησή σας. (Μονάδες 6)</p>
+    <figure class="problem-figure"><img src="https://i.imgur.com/v0hodA1.png" alt="Σχήμα — Β3" loading="lazy"></figure>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Από το διάγραμμα:</p>
+        <div class="math-box">\[ F_{\text{ελ}}=0 \quad\text{για}\quad x=\frac1{15}m. \]</div>
+        <p>Επομένως η κλίση της ευθείας είναι:</p>
+        <div class="math-box">\[ -k=-\frac{10}{1/15} \]\[ \boxed{k=150\,N/m}. \]</div>
+        <p>Για \(x=A\) το διάγραμμα δίνει:</p>
+        <div class="math-box">\[ F_{\text{ελ}}=-50N. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ 10-150A=-50 \]\[ 150A=60 \]\[ \boxed{A=0,40m}. \]</div>
+        <p>Η ενέργεια της ταλάντωσης είναι:</p>
+        <div class="math-box">\[ E=\frac12kA^2 \]\[ E=\frac12(150)(0,40)^2 \]\[ \boxed{E=12J}. \]</div>
+        <div class="result-box"><strong>Β3: β.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Β4 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Β4</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Η δοκός \(ΑΓ\) του σχήματος έχει μήκος \(L\), μάζα \(M=m\), είναι οριζόντια και αρθρωμένη στο άκρο της \(Α\). Στο άλλο της άκρο \(Γ\) είναι στερεωμένο το πάνω άκρο κατακόρυφου ιδανικού ελατηρίου σταθεράς \(k\), στο ελεύθερο άκρο του οποίου είναι στερεωμένο σώμα \(Σ\) μάζας \(m\). Ένα αβαρές και μη εκτατό νήμα δένεται στο ένα του άκρο στο μέσο \(Λ\) της ράβδου και το δεύτερο άκρο του στερεώνεται κατάλληλα στον κατακόρυφο τοίχο, όπως φαίνεται στο σχήμα. Το σώμα \(Σ\) αρχικά ηρεμεί. Στη συνέχεια τίθεται σε κατακόρυφη αρμονική ταλάντωση πλάτους \(A\). Κατά τη διάρκεια της ταλάντωσης διαπιστώνουμε ότι το νήμα οριακά δεν χαλαρώνει και οριακά δεν σπάει. Το μέτρο της επιτάχυνσης της βαρύτητας είναι \(g\). Το όριο θραύσης \(T_{\theta\rho}\) του νήματος είναι ίσο με:</p>
+    <ol class="choice-list"><li>\(3mg\)</li><li>\(6mg\)</li><li>\(12mg\)</li></ol>
+    <p>Ι. Να επιλέξετε τη σωστή απάντηση. (Μονάδα 2)<br>ΙΙ. Να αιτιολογήσετε την απάντησή σας. (Μονάδες 7)</p>
+    <figure class="problem-figure"><img src="https://i.imgur.com/kjXlDo2.png" alt="Σχήμα — Β4" loading="lazy"></figure>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Στη ράβδο δρουν το βάρος της \(mg\), η δύναμη του ελατηρίου στο \(Γ\) και η τάση \(T\) του νήματος στο μέσο \(Λ\). Η γωνία του νήματος με τη ράβδο είναι \(30^\circ\).</p>
+        <p>Παίρνοντας ροπές ως προς την άρθρωση \(A\):</p>
+        <div class="math-box">\[ T\sin30^\circ\frac L2 = F_{\text{ελ}}L + mg\frac L2. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ \frac{TL}{4} = F_{\text{ελ}}L+\frac{mgL}{2} \]\[ \boxed{T=4F_{\text{ελ}}+2mg}. \]</div>
+        <p>Για το σώμα \(Σ\):</p>
+        <div class="math-box">\[ F_{\text{ελ}}-mg=ma. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ T=4(ma+mg)+2mg \]\[ \boxed{T=6mg+4ma}. \]</div>
+        <p>Κατά την ταλάντωση:</p>
+        <div class="math-box">\[ a_{\max}=+\omega^2A, \qquad a_{\min}=-\omega^2A. \]</div>
+        <p>Το νήμα οριακά δεν χαλαρώνει, άρα:</p>
+        <div class="math-box">\[ T_{\min}=0. \]</div>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ 6mg-4m\omega^2A=0 \]\[ \omega^2A=\frac32g. \]</div>
+        <p>Στην αντίθετη ακραία θέση:</p>
+        <div class="math-box">\[ T_{\max}=6mg+4m\frac32g=12mg. \]</div>
+        <div class="result-box">\[ \boxed{T_{\theta\rho}=12mg} \]<strong>Β4: γ.</strong></div>
+      </div>
+    </div>
+  </details>
+</div>
+<h2>ΘΕΜΑ Γ — Δύο σώματα σε επαφή</h2>
+<div class="section-intro">
+  <div class="statement-title">Εκφώνηση</div>
+  <p>Ιδανικό ελατήριο σταθεράς \(k\) έχει το ένα του άκρο στερεωμένο σε τοίχο και στο άλλο του άκρο στερεώνεται σώμα \(Σ_1\) μάζας \(m_1=1\,\mathrm{kg}\). Το ελατήριο είναι οριζόντιο, όπως φαίνεται στο σχήμα. Σε επαφή με το σώμα \(Σ_1\) βρίσκεται δεύτερο σώμα \(Σ_2\), μάζας \(m_2\). Ακόμη, τα δύο σώματα θεωρούνται ως υλικά σημεία και η αρχική τους θέση είναι η θέση φυσικού μήκους του ελατηρίου, που είναι και η αρχή του οριζόντιου άξονα.</p>
+  <p>Ασκούμε σταθερή οριζόντια δύναμη \(\vec F\) στο σώμα \(Σ_2\), με κατεύθυνση προς τα αριστερά, συμπιέζοντας το ελατήριο μέχρι να φτάσουν τα σώματα στη θέση όπου μηδενίζεται η ταχύτητά τους, και στη συνέχεια αποσύρουμε τη δύναμη. Μετά την απόσυρση της \(\vec F\), τα δύο σώματα αρχίζουν να εκτελούν απλή αρμονική ταλάντωση με σταθερά \(D=k\) ως ένα ενιαίο σώμα, γύρω από τη θέση ισορροπίας.</p>
+  <figure class="problem-figure"><img src="https://i.imgur.com/yJvUaQq.png" alt="Σχήμα — ΘΕΜΑ Γ" loading="lazy"></figure>
+</div>
+<!-- ===== Γ1 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Γ1</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Σε κάποια θέση χάνεται η επαφή ανάμεσα στα δύο σώματα. Μετά την απώλεια επαφής, το σώμα \(Σ_1\) παραμένει στερεωμένο στο άκρο του ελατηρίου και πραγματοποιεί απλή αρμονική ταλάντωση με σταθερά \(D=k\). Το πλάτος της ταλάντωσης του \(Σ_1\) είναι υποδιπλάσιο του πλάτους ταλάντωσης του σύνθετου σώματος \((Σ_1-Σ_2)\) πριν την απώλεια της επαφής. Αφού προσδιορίσετε τη θέση όπου χάνεται η επαφή, αιτιολογώντας την απάντησή σας, να υπολογίσετε τη μάζα \(m_2\) του σώματος. (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Όσο τα δύο σώματα παραμένουν σε επαφή, κινούνται ως ένα σώμα μάζας:</p>
+        <div class="math-box">\[ M=m_1+m_2. \]</div>
+        <p>Για το \(Σ_2\), η δύναμη επαφής είναι:</p>
+        <div class="math-box">\[ N=m_2a. \]</div>
+        <p>Η επαφή χάνεται όταν \(N=0\), επομένως:</p>
+        <div class="math-box">\[ a=0. \]</div>
+        <p>Στην ΑΑΤ:</p>
+        <div class="math-box">\[ a=-\omega^2x, \]</div>
+        <p>άρα η απώλεια επαφής συμβαίνει στη θέση ισορροπίας:</p>
+        <div class="result-box">\[ \boxed{x=0}. \]</div>
+        <p>Στη θέση αυτή η κινητική ενέργεια είναι μέγιστη. Μετά την απώλεια επαφής το \(Σ_1\) αποκτά πλάτος \(A/2\). Άρα:</p>
+        <div class="math-box">\[ \frac12kA^2 = \frac12(m_1+m_2)v^2 \] και \[ \frac12m_1v^2 = \frac12k\left(\frac A2\right)^2. \]</div>
+        <p>Συνδυάζοντας:</p>
+        <div class="math-box">\[ m_1+m_2=4m_1. \]\[ m_2=3m_1. \]</div>
+        <p>Εφόσον \(m_1=1kg\):</p>
+        <div class="result-box">\[ \boxed{m_2=3kg}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Γ2 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Γ2</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Κατά την ταλάντωση του σύνθετου σώματος και πριν χαθεί η επαφή των δύο σωμάτων, η αλγεβρική τιμή της δύναμης που ασκεί το σώμα \(Σ_1\) στο \(Σ_2\) μεταβάλλεται με την απομάκρυνση σύμφωνα με τη σχέση \(F=-75x\quad(\mathrm{S.I.})\) Να υπολογίσετε τη σταθερά \(k\) του ελατηρίου. (Μονάδες 3)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για το \(Σ_2\):</p>
+        <div class="math-box">\[ F_{12}=m_2a. \]</div>
+        <p>Επειδή:</p>
+        <div class="math-box">\[ a=-\frac{k}{m_1+m_2}x, \]</div>
+        <p>προκύπτει:</p>
+        <div class="math-box">\[ F_{12}=-\frac{m_2k}{m_1+m_2}x. \]</div>
+        <p>Δίνεται:</p>
+        <div class="math-box">\[ F_{12}=-75x. \]</div>
+        <p>Με \(m_2=3kg\) και \(m_1+m_2=4kg\):</p>
+        <div class="math-box">\[ \frac{3k}{4}=75. \]</div>
+        <div class="result-box">\[ \boxed{k=100N/m}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Γ3 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Γ3</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Κατά την άσκηση της σταθερής δύναμης \(\vec F\) στο σώμα \(Σ_2\), από τη θέση φυσικού μήκους του ελατηρίου και μέχρι την απόσυρσή της, η μέγιστη ταχύτητα που αποκτά το σώμα έχει μέτρο \(v=1\,\mathrm{m/s}\). Να υπολογίσετε το μέτρο της δύναμης \(\vec F\). (Mονάδες 6)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Η δύναμη \(F\) είναι σταθερή και ασκείται προς τα αριστερά. Η νέα θέση ισορροπίας μετατοπίζεται κατά:</p>
+        <div class="math-box">\[ \left|x_{\text{ισ}}\right|=\frac Fk. \]</div>
+        <p>Η μέγιστη ταχύτητα εμφανίζεται στη νέα θέση ισορροπίας. Από το έργο–ενέργεια:</p>
+        <div class="math-box">\[ \frac{F^2}{2k} = \frac12Mv_{\max}^2. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ F=v_{\max}\sqrt{kM}. \]</div>
+        <p>Με:</p>
+        <div class="math-box">\[ v_{\max}=1m/s, \qquad k=100N/m, \qquad M=4kg \]</div>
+        <p>παίρνουμε:</p>
+        <div class="result-box">\[ \boxed{F=20N}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Γ4 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Γ4</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Αν η δύναμη \(\vec F\) παραμένει ασκούμενη στο σώμα \(Σ_2\) και δεν αποσυρθεί, να γράψετε τη χρονική εξίσωση της απομάκρυνσης του σύνθετου σώματος \((Σ_1-Σ_2)\). Να θεωρήσετε ως αρχή για τη μέτρηση του χρόνου τη στιγμή κατά την οποία αρχίζει η άσκηση της δύναμης αυτής στο σώμα \(Σ_2\) και θετική φορά του οριζόντιου άξονα προς τα δεξιά. (Μονάδες 6)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Η νέα θέση ισορροπίας είναι:</p>
+        <div class="math-box">\[ x_{\text{ισ}}=-\frac Fk=-0,20m. \]</div>
+        <p>Η κυκλική συχνότητα:</p>
+        <div class="math-box">\[ \omega = \sqrt{\frac{k}{M}} = \sqrt{\frac{100}{4}} = 5rad/s. \]</div>
+        <p>Τη στιγμή \(t=0\):</p>
+        <div class="math-box">\[ x(0)=+Α, \qquad v(0)=0. \]</div>
+        <p>(Η ταλάνταωση με την παρουσία της F αρχίζει από τη ΘΦΜ που είναι η δεξιά ακραία θέση της ταλάντωσης). Το πλάτος Α ως προς τη νέα θέση ισορροπίας είναι \(0,20m\). Άρα:</p>
+       <div class="math-box">\[ x=A\cos\omega t. \]</div>
+<div class="result-box">\[ \boxed{x(t)=0,20[\cos(5t)]\;m}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Γ5 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Γ5</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Κατά τη διάρκεια της παραπάνω ταλάντωσης να βρείτε το μέγιστο μέτρο της δύναμης που ασκεί το σώμα \(Σ_2\) στο σώμα \(Σ_1\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για το \(Σ_1\):</p>
+        <div class="math-box">\[ m_1a=-kx+F_{21}. \]</div>
+        <p>Η επιτάχυνση είναι:</p>
+        <div class="math-box">\[ a=-25(x+0,20). \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ F_{21}=a+100x \]\[ F_{21}=75x-5. \]</div>
+        <p>Η ταλάντωση πραγματοποιείται μεταξύ:</p>
+        <div class="math-box">\[ -0,40\leq x\leq0. \]</div>
+        <p>Στο \(x=-0,40m\):</p>
+        <div class="math-box">\[ F_{21}=-35N. \]</div>
+        <div class="result-box">\[ \boxed{|F_{21}|_{\max}=35N}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<h2>ΘΕΜΑ Δ — Κρούση, ελατήριο και στατική τριβή</h2>
+<div class="section-intro">
+  <div class="statement-title">Εκφώνηση</div>
+  <p>Ιδανικό ελατήριο σταθεράς \(k=50\,\mathrm{N/m}\) έχει φυσικό μήκος \(l_0=1\,\mathrm m\), είναι οριζόντιο και το δεξιό του άκρο είναι στερεωμένο στο σώμα \(Σ_2\) μάζας \(m_2=2\,\mathrm{kg}\). Αρχικά το σώμα \(Σ_2\) είναι ακίνητο \((v_2=0)\). Ένα δεύτερο σώμα \(Σ_1\), μάζας \(m_1=1\,\mathrm{kg}\), κινείται σε επαφή με το λείο οριζόντιο δάπεδο έχοντας σταθερή ταχύτητα μέτρου \(v_1\), με φορά προς τα δεξιά. Κάποια στιγμή το \(Σ_1\) έρχεται σε επαφή με το αριστερό άκρο του ελατηρίου, το οποίο αρχίζει να συσπειρώνεται. Τη στιγμή κατά την οποία το ελατήριο έχει μήκος \(l_1=0{,}6\,\mathrm m\), το σώμα \(Σ_2\) έχει ταχύτητα μέτρου \(v'_2=2\,\mathrm{m/s}\).</p>
+  <figure class="problem-figure"><img src="https://i.imgur.com/att2cFr.png" alt="Σχήμα — ΘΕΜΑ Δ" loading="lazy"></figure>
+</div>
+<!-- ===== Δ1 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Δ1</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Ποιο είναι το μέτρο της ταχύτητας του σώματος \(Σ_1\):</p>
+    <ol class="choice-list"><li>λίγο πριν έρθει σε επαφή με το ελεύθερο άκρο του ελατηρίου;</li><li>τη στιγμή κατά την οποία το μήκος του ελατηρίου είναι ίσο με \(l_1\);</li></ol>
+    <p>(Μονάδες 4 + 2)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Τη στιγμή που το ελατήριο έχει μήκος \(0,6m\), η παραμόρφωσή του είναι:</p>
+        <div class="math-box">\[ x=l_0-l_1=1-0,6=0,4m. \]</div>
+        <p>Η ορμή διατηρείται:</p>
+        <div class="math-box">\[ m_1v_1 = m_1v_1'+m_2v_2'. \]</div>
+        <p>Με \(m_1=1kg\), \(m_2=2kg\), \(v_2'=2m/s\):</p>
+        <div class="math-box">\[ v_1=v_1'+4. \]</div>
+        <p>Η μηχανική ενέργεια διατηρείται:</p>
+        <div class="math-box">\[ \frac12v_1^2 = \frac12v_1'^2 + \frac12(2)(2^2) + \frac12(50)(0,4)^2. \]</div>
+        <p>Από τις δύο σχέσεις προκύπτει:</p>
+        <div class="result-box">\[ \boxed{v_1=4m/s} \] και \[ \boxed{v_1'=0}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Δ2 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Δ2</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Με ποιο ρυθμό μεταβάλλεται η κινητική ενέργεια του σώματος \(Σ_2\), καθώς και η δυναμική ενέργεια του ελατηρίου, τη στιγμή \(t_1\) στην οποία \(l_1=0{,}6\,\mathrm m\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Το \(Σ_2\) κινείται προς τα δεξιά και το ελατήριο είναι συμπιεσμένο. Η δύναμη του ελατηρίου στο \(Σ_2\) είναι επίσης προς τα δεξιά:</p>
+        <div class="math-box">\[ F_{\text{ελ}}=kx=50(0,4)=20N. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ \frac{dK_2}{dt} = \vec F_{\text{ελ}}\cdot\vec v_2 = 20(2). \]</div>
+        <div class="result-box">\[ \boxed{\frac{dK_2}{dt}=+40W}. \]</div>
+        <p>Για τη δυναμική ενέργεια του ελατηρίου:</p>
+        <div class="math-box">\[ U_{\text{ελ}}=\frac12kx^2. \]</div>
+        <p>Καθώς το ελατήριο αποσυμπιέζεται, η \(U_{\text{ελ}}\) μειώνεται:</p>
+        <div class="math-box">\[ \frac{dU_{\text{ελ}}}{dt} = -kxv_2 = -50(0,4)(2). \]</div>
+        <div class="result-box">\[ \boxed{\frac{dU_{\text{ελ}}}{dt}=-40W}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Δ3 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Δ3</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Τη στιγμή \(t_1\) το σώμα \(Σ_2\) συναντά ανένδοτο τοίχο, ακινητοποιείται ακαριαία και προσκολλάται σε αυτόν. Να υπολογίσετε τη μέγιστη απόσταση από το \(Σ_2\) στην οποία θα βρεθεί για πρώτη φορά το σώμα \(Σ_1\), καθώς και το χρονικό διάστημα από τη στιγμή της ακινητοποίησης του \(Σ_2\) στο οποίο θα συμβεί αυτό. (Μονάδες 4)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Μετά την ακινητοποίηση του \(Σ_2\), το \(Σ_1\) εκτελεί ΑΑΤ με:</p>
+        <div class="math-box">\[ A=0,4m. \]</div>
+        <p>Η μέγιστη απόσταση από το \(Σ_2\) είναι:</p>
+        <div class="math-box">\[ d_{\max}=l_0+A = 1+0,4. \]</div>
+        <div class="result-box">\[ \boxed{d_{\max}=1,4m}. \]</div>
+        <p>Η κυκλική συχνότητα:</p>
+        <div class="math-box">\[ \omega = \sqrt{\frac{k}{m_1}} = \sqrt{50}. \]</div>
+        <p>Από την αρχική ακραία θέση στην απέναντι ακραία θέση απαιτείται μισή περίοδος:</p>
+        <div class="math-box">\[ \Delta t = \frac T2 = \frac{\pi}{\sqrt{50}}. \]</div>
+        <div class="result-box">\[ \boxed{\Delta t\approx0,444s}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Δ4 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Δ4</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Τη στιγμή κατά την οποία το σώμα \(Σ_1\) βρίσκεται για πρώτη φορά στη μέγιστη απόσταση από το σώμα \(Σ_2\), τοποθετούμε πάνω του με μηδενική ταχύτητα σώμα \(Σ_3\) μάζας \(m_3\). Ο συντελεστής στατικής–οριακής τριβής ανάμεσα στα σώματα \(Σ_1\) και \(Σ_3\) έχει τιμή \(\mu_{\mathrm{στ}}=0{,}5\). Να βρείτε την ελάχιστη τιμή της μάζας \(m_3\), ώστε το σώμα \(Σ_3\) να μην ολισθήσει σχετικά με το \(Σ_2\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για να κινείται το \(Σ_3\) μαζί με το \(Σ_1\), η απαιτούμενη στατική τριβή δεν πρέπει να ξεπερνά τη μέγιστη τιμή της:</p>
+        <div class="math-box">\[ f_s\leq\mu_sN = \mu_sm_3g. \]</div>
+        <p>Η μέγιστη επιτάχυνση του συστήματος είναι:</p>
+        <div class="math-box">\[ a_{\max} = \frac{kA}{m_1+m_3}. \]</div>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ m_3a_{\max} \leq \mu_sm_3g. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ \frac{kA}{m_1+m_3} \leq \mu_sg. \]</div>
+        <p>Με \(k=50N/m\), \(A=0,4m\), \(m_1=1kg\), \(\mu_s=0,5\), \(g=10m/s^2\):</p>
+        <div class="math-box">\[ \frac{20}{1+m_3}\leq5. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ 1+m_3\geq4. \]</div>
+        <div class="result-box">\[ \boxed{m_{3,\min}=3kg}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Δ5 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Δ5</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Με ποιο ρυθμό παράγει έργο η στατική τριβή τη στιγμή κατά την οποία τα σώματα \(Σ_1\) και \(Σ_3\), κινούμενα ως ενιαίο σώμα, έχουν ταχύτητα μέτρου \(v=\sqrt{\frac32}\,\mathrm{m/s}\), απομακρυνόμενα από το \(Σ_2\), και το ελατήριο έχει μήκος μικρότερο του φυσικού. Θεωρείστε ότι \(m_3=3\,\mathrm{kg}\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Τη στιγμή που το σώμα \(Σ_2\) ακινητοποιείται, το \(Σ_1\) έχει επίσης μηδενική ταχύτητα. Επομένως η θέση αυτή είναι ακραία θέση της ταλάντωσης και το πλάτος της ταλάντωσης είναι ίσο με τη συσπείρωση του ελατηρίου:</p>
+        <div class="math-box">\[ A=0{,}4\,\mathrm{m}. \]</div>
+        <p>Με την προσθήκη του σώματος \(Σ_3\), τα δύο σώματα κινούνται μαζί. Η συνολική μάζα είναι:</p>
+        <div class="math-box">\[ M=m_1+m_3=1+3=4\,\mathrm{kg}. \]</div>
+        <p>Η γωνιακή συχνότητα της νέας ταλάντωσης είναι:</p>
+        <div class="math-box">\[ \omega=\sqrt{\frac{k}{M}} = \sqrt{\frac{50}{4}}. \]</div>
+        <p>Δίνεται ότι τη συγκεκριμένη στιγμή:</p>
+        <div class="math-box">\[ v=\sqrt{\frac32}\,\mathrm{m/s}. \]</div>
+        <p>Από την εξίσωση της ενέργειας της ΑΑΤ:</p>
+        <div class="math-box">\[ v^2=\omega^2(A^2-x^2). \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ x^2=A^2-\frac{v^2}{\omega^2} = (0{,}4)^2-\frac{\frac32}{\frac{50}{4}} = 0{,}16-0{,}12 = 0{,}04. \]</div>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ x=\pm0{,}2\,\mathrm{m}. \]</div>
+        <p>Το σύστημα κινείται προς τα αριστερά, δηλαδή προς το φυσικό μήκος του ελατηρίου, οπότε:</p>
+        <div class="math-box">\[ \boxed{x=-0{,}2\,\mathrm{m}}. \]</div>
+        <p>Η επιτάχυνση έχει αντίθετη φορά από την ταχύτητα και το μέτρο της είναι:</p>
+        <div class="math-box">\[ |a|=\omega^2|x| = \frac{50}{4}\,0{,}2 = 2{,}5\,\mathrm{m/s^2}. \]</div>
+        <p>Στο σώμα \(Σ_3\) η στατική τριβή είναι η οριζόντια δύναμη που το επιταχύνει. Επομένως:</p>
+        <div class="math-box">\[ f_{\mathrm{στ}} = m_3|a| = 3\cdot2{,}5 = 7{,}5\,\mathrm{N}. \]</div>
+        <p>Η τριβή έχει φορά προς τα δεξιά, ενώ η ταχύτητα προς τα αριστερά. Επομένως:</p>
+        <div class="math-box">\[ P_{\mathrm{στ}} = \vec f_{\mathrm{στ}}\cdot\vec v = -f_{\mathrm{στ}}v. \]</div>
+        <div class="math-box">\[ P_{\mathrm{στ}} = -7{,}5\sqrt{\frac32} = -\frac{15\sqrt6}{4}\,\mathrm{W}. \]</div>
+        <div class="result-box">\[ \boxed{P_{\mathrm{στ}} = -\frac{15\sqrt6}{4}\,\mathrm{W} \approx-9{,}19\,\mathrm{W}} \]</div>
+        <p class="note">Το αρνητικό πρόσημο σημαίνει ότι η στατική τριβή αφαιρεί ενέργεια από το σώμα \(Σ_3\) τη συγκεκριμένη στιγμή.</p>
+      </div>
+    </div>
+  </details>
+</div>
+<h2>ΘΕΜΑ Ε — Τροχαλία, δύο νήματα και ταλαντώσεις</h2>
+<div class="section-intro">
+  <div class="statement-title">Εκφώνηση</div>
+  <p>Ιδανικό ελατήριο σταθεράς \(k=150\,\mathrm{N/m}\) είναι κατακόρυφο και έχει το κάτω άκρο του στερεωμένο στο δάπεδο. Στο επάνω άκρο του ελατηρίου είναι στερεωμένο σώμα \(Σ_1\) μάζας \(m_1=m=1\,\mathrm{kg}\), το οποίο ηρεμεί. Ένα αβαρές και μη εκτατό νήμα (1) συνδέει το σώμα \(Σ_1\) με μια τροχαλία μάζας \(M_T=m\), ακτίνας \(R\), η οποία φέρει αυλάκι ακτίνας \(r=R/2\), όπως φαίνεται στο σχήμα. Στο αυλάκι της τροχαλίας είναι τυλιγμένο δεύτερο αβαρές και μη εκτατό νήμα (2), αμελητέου πάχους, το οποίο συνδέεται με σώμα \(Σ_2\) μάζας \(m_2=4m\), το οποίο ηρεμεί πάνω σε λείο κεκλιμένο επίπεδο γωνίας κλίσης \(\theta=30^\circ\). Το όλο σύστημα ισορροπεί όπως φαίνεται στο σχήμα. Δίνεται \(g=10\,\mathrm{m/s^2}\).</p>
+  <figure class="problem-figure"><img src="https://i.imgur.com/JBP0oSK.jpeg" alt="Σχήμα — ΘΕΜΑ Ε" loading="lazy"></figure>
+</div>
+<!-- ===== Ε1 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε1</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Να βρεθεί η παραμόρφωση του ελατηρίου. Δίνονται \(\sin\theta=0{,}5\), \(\cos\theta=\sqrt3/2\). (Μονάδες 3)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για το \(Σ_2\), στη διεύθυνση του κεκλιμένου επιπέδου:</p>
+        <div class="math-box">\[ T_2=m_2g\sin30^\circ =4\cdot10\cdot\frac12 =20\,\mathrm N. \]</div>
+        <p>Η τροχαλία ισορροπεί ως προς περιστροφή:</p>
+        <div class="math-box">\[ T_1R=T_2r. \]</div>
+        <p>Με \(r=R/2\):</p>
+        <div class="math-box">\[ T_1=\frac{T_2}{2}=10\,\mathrm N. \]</div>
+        <p>Για το \(Σ_1\), στη θέση ισορροπίας:</p>
+        <div class="math-box">\[ T_1-m_1g-F_{\mathrm{ελ}}=0. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ 10-10-F_{\mathrm{ελ}}=0 \quad\Rightarrow\quad F_{\mathrm{ελ}}=0. \]</div>
+        <div class="result-box">\[ \boxed{\Delta l=0} \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Ε2 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε2</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Εκτρέπουμε το σώμα \(Σ_2\) κατακόρυφα προς τα κάτω κατά μήκος του κεκλιμένου επιπέδου. Συγχρόνως και το σώμα \(Σ_1\) ανυψώνεται και έρχεται σε μια θέση που βρίσκεται ψηλότερα από τη θέση ισορροπίας του. Αφήνουμε ελεύθερα τα σώματα να κινηθούν. Διαπιστώνουμε ότι αυτά πραγματοποιούν απλές αρμονικές ταλαντώσεις γύρω από τη θέση όπου ισορροπούσαν πριν την εκτροπή τους. Η αλγεβρική τιμή της επιτάχυνσης του σώματος \(Σ_1\), σε συνάρτηση με την απομάκρυνση \(x\) από τη θέση ισορροπίας του, δίνεται από τη σχέση \(a_1=-100x\quad(\mathrm{S.I.})\) Θετική φορά του κατακόρυφου άξονα λαμβάνεται η προς τα πάνω και του άξονα που είναι παράλληλος προς το κεκλιμένο θεωρούμε την προς τα κάτω. Να εκφράσετε τις αλγεβρικές τιμές των τάσεων των δύο νημάτων που ασκούνται στα σώματα \(Σ_1\) και \(Σ_2\) σε συνάρτηση με την απομάκρυνση \(x\) του σώματος \(Σ_1\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Επειδή η τροχαλία είναι άκαμπτη, όλα τα σημεία της έχουν την ίδια γωνιακή επιτάχυνση. Επομένως:</p>
+        <div class="math-box">\[ \boxed{\frac{a_1}{R}=\frac{a_2}{r}}. \]</div>
+        <p>Με \(r=R/2\):</p>
+        <div class="math-box">\[ \boxed{a_2=\frac{a_1}{2}}. \]</div>
+        <p>Επειδή \(a_1=-100x\):</p>
+        <div class="result-box">\[ \boxed{a_2=-50x}. \]</div>
+        <h3>Τάση του νήματος (1)</h3>
+        <p>Για το \(Σ_1\), με θετική φορά προς τα πάνω:</p>
+        <div class="math-box">\[ T_1-m_1g-kx=m_1a_1. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ T_1-10-150x=-100x \]</div>
+        <div class="result-box">\[ \boxed{T_1=10+50x\quad(\mathrm N)}. \]</div>
+        <h3>Τάση του νήματος (2)</h3>
+        <p>Για το \(Σ_2\), με θετική φορά προς τα κάτω κατά μήκος του επιπέδου:</p>
+        <div class="math-box">\[ m_2g\sin30^\circ-T_2=m_2a_2. \]</div>
+        <p>Επομένως:</p>
+        <div class="math-box">\[ 20-T_2=4(-50x). \]</div>
+        <div class="result-box">\[ \boxed{T_2=20+200x\quad(\mathrm N)}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Ε3 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε3</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Να υπολογίσετε το μέγιστο επιτρεπόμενο πλάτος ταλάντωσης του σώματος \(Σ_1\), προκειμένου να μη χαλαρώσει κανένα από τα δύο νήματα. (Μονάδες 4)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Για να παραμένουν τεντωμένα και τα δύο νήματα πρέπει:</p>
+        <div class="math-box">\[ T_1\ge0,\qquad T_2\ge0. \]</div>
+        <p>Από το νήμα (1):</p>
+        <div class="math-box">\[ 10+50x\ge0 \quad\Rightarrow\quad x\ge-0{,}20\,\mathrm m. \]</div>
+        <p>Από το νήμα (2):</p>
+        <div class="math-box">\[ 20+200x\ge0 \quad\Rightarrow\quad x\ge-0{,}10\,\mathrm m. \]</div>
+        <p>Ο αυστηρότερος περιορισμός προέρχεται από το νήμα (2). Άρα:</p>
+        <div class="math-box">\[ x_{\min}=-0{,}10\,\mathrm m. \]</div>
+        <div class="result-box">\[ \boxed{A_{\max}=0{,}10\,\mathrm m} \]</div>
+        <p>Στο οριακό πλάτος:</p>
+        <div class="math-box">\[ \boxed{T_{2,\min}=0}. \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Ε4α ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε4α</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p><strong>α.</strong> Το μέτρο της συνολικής επιτάχυνσης του σημείου της τροχαλίας με το οποίο το νήμα (1) έρχεται σε επαφή τη στιγμή \(t_1\), κατά την οποία το σώμα \(Σ_2\) έχει απομάκρυνση \(x_2=\frac{\sqrt3\,A_{\max}}4\) για πρώτη φορά από τη θέση ισορροπίας του. Δίνεται \(R=0{,}05\,\mathrm m\). (Μονάδες 5)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Τη στιγμή \(t_1\):</p>
+        <div class="math-box">\[ x_2=\frac{\sqrt3}{4}A_{\max} = \frac{\sqrt3}{40}\,\mathrm m. \]</div>
+        <p>Από τη μη εκτατότητα των νημάτων:</p>
+        <div class="math-box">\[ \frac{x_1}{R}=\frac{x_2}{r}. \]</div>
+        <p>Επειδή \(R=2r\):</p>
+        <div class="math-box">\[ x_1=2x_2=\boxed{\frac{\sqrt3}{20}\,\mathrm m}. \]</div>
+        <p>Η ταχύτητα του \(Σ_1\) είναι:</p>
+        <div class="math-box">\[ v_1 = \omega\sqrt{A_{\max}^2-x_1^2} \]</div>
+        <div class="math-box">\[ v_1 = 10\sqrt{ \frac1{100}-\frac3{400}} = 10\sqrt{\frac1{400}} = \boxed{\frac12\,\mathrm{m/s}}. \]</div>
+        <p>Η εφαπτομενική επιτάχυνση του \(B\):</p>
+        <div class="math-box">\[ a_\tau=|a_1| = \omega^2x_1 = 100\frac{\sqrt3}{20} = \boxed{5\sqrt3\,\mathrm{m/s^2}}. \]</div>
+        <p>Η κεντρομόλος επιτάχυνση:</p>
+        <div class="math-box">\[ a_n=\frac{v_1^2}{R} = \frac{(1/2)^2}{0{,}05} = \boxed{5\,\mathrm{m/s^2}}. \]</div>
+        <p>Οι δύο συνιστώσες είναι κάθετες, επομένως:</p>
+        <div class="math-box">\[ a_B=\sqrt{a_\tau^2+a_n^2} = \sqrt{(5\sqrt3)^2+5^2} = \sqrt{100}. \]</div>
+        <div class="result-box">\[ \boxed{a_B=10\,\mathrm{m/s^2}} \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Ε4β ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε4β</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p><strong>β.</strong> Το μέτρο της δύναμης που ασκεί ο άξονας περιστροφής της τροχαλίας σ' αυτήν τη στιγμή, κατά την οποία το \(Σ_1\) έχει απομάκρυνση \(A_{\max}/2\) για πρώτη φορά από τη θέση ισορροπίας του. (Μονάδες 4)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Τη στιγμή που \(x=A_{\max}/2=0{,}05\,\mathrm m\):</p>
+        <div class="math-box">\[ T_1=10+50(0{,}05)=12{,}5\,\mathrm N, \]</div>
+        <div class="math-box">\[ T_2=20+200(0{,}05)=30\,\mathrm N. \]</div>
+        <p>Στην τροχαλία ασκούνται οι \(T_1,T_2\), το βάρος \(Mg=10\,\mathrm N\) και η δύναμη του άξονα.</p>
+        <div class="math-box">\[ F_{Ax}=T_2\cos30^\circ=15\sqrt3\,\mathrm N \]</div>
+        <div class="math-box">\[ F_{Ay}=T_1+T_2\sin30^\circ+Mg =12{,}5+15+10 =37{,}5\,\mathrm N. \]</div>
+        <p>Άρα:</p>
+        <div class="math-box">\[ F_A = \sqrt{(15\sqrt3)^2+(37{,}5)^2}. \]</div>
+        <div class="math-box">\[ F_A = \sqrt{675+\frac{5625}{4}} = \sqrt{\frac{8325}{4}}. \]</div>
+        <div class="result-box">\[ \boxed{ F_A=\frac{5\sqrt{333}}{2}\,\mathrm N \approx45{,}62\,\mathrm N} \]</div>
+      </div>
+    </div>
+  </details>
+</div>
+<!-- ===== Ε5 ===== -->
+<div class="problem-card">
+  <div class="problem-header">Ε5</div>
+  <div class="statement">
+    <div class="statement-title">Εκφώνηση</div>
+    <p>Να βρείτε τον ρυθμό μεταβολής της τάσης του νήματος που ασκεί το νήμα (2) στο σώμα \(Σ_2\) τη στιγμή \(t_1\). (Μονάδες 4)</p>
+  </div>
+  <details class="solution-details">
+    <summary>Απάντηση / Λύση</summary>
+    <div class="solution-body">
+      <div class="question">
+        <p>Από το Ε2:</p>
+        <div class="math-box">\[ T_2=20+200x. \]</div>
+        <p>Παραγωγίζοντας ως προς τον χρόνο:</p>
+        <div class="math-box">\[ \frac{dT_2}{dt}=200\frac{dx}{dt}. \]</div>
+        <p>Τη στιγμή \(t_1\), το \(Σ_1\) κινείται προς τη θέση ισορροπίας, άρα:</p>
+        <div class="math-box">\[ v_1=-\frac12\,\mathrm{m/s}. \]</div>
+        <div class="math-box">\[ \frac{dT_2}{dt} = 200\left(-\frac12\right). \]</div>
+        <div class="result-box">\[ \boxed{\frac{dT_2}{dt}=-100\,\mathrm{N/s}} \]</div>
+        <p class="note">Το αρνητικό πρόσημο δείχνει ότι η τάση του νήματος (2) μειώνεται τη συγκεκριμένη στιγμή.</p>
+      </div>
+    </div>
+  </details>
+</div>
+<h2>Συνοπτικός πίνακας απαντήσεων</h2>
+<table>
+  <tr><th>Ερώτημα</th><th>Απάντηση</th></tr>
+  <tr><td>Α1</td><td><strong>γ</strong></td></tr>
+  <tr><td>Α2</td><td><strong>δ</strong></td></tr>
+  <tr><td>Α3</td><td><strong>β</strong></td></tr>
+  <tr><td>Α4</td><td><strong>β</strong></td></tr>
+  <tr><td>Α5</td><td>α: Σωστό · β: Λάθος · γ: Σωστό · δ: Σωστό · ε: Σωστό</td></tr>
+  <tr><td>Β1α</td><td>\(\boxed{2}\)</td></tr>
+  <tr><td>Β1β</td><td><strong>β — παραμένει ακίνητο</strong></td></tr>
+  <tr><td>Β2</td><td>\(\boxed{E_1/E_2=4}\)</td></tr>
+  <tr><td>Β3</td><td>\(\boxed{12\,J}\)</td></tr>
+  <tr><td>Β4</td><td>\(\boxed{12mg}\)</td></tr>
+  <tr><td>Γ1</td><td>\(\boxed{m_2=3\,kg}\)</td></tr>
+  <tr><td>Γ2</td><td>\(\boxed{k=100\,N/m}\)</td></tr>
+  <tr><td>Γ3</td><td>\(\boxed{F=20\,N}\)</td></tr>
+  <tr><td>Γ4</td><td>\(\boxed{x(t)=0{,}20[\cos(5t)-1]\,m}\)</td></tr>
+  <tr><td>Γ5</td><td>\(\boxed{|F_{21}|_{\max}=35\,N}\)</td></tr>
+  <tr><td>Δ1α</td><td>\(\boxed{v_1=4\,m/s}\)</td></tr>
+  <tr><td>Δ1β</td><td>\(\boxed{v'_1=0}\)</td></tr>
+  <tr><td>Δ2</td><td>\(\boxed{dK_2/dt=+40\,W}\), \(\boxed{dU_{\mathrm{ελ}}/dt=-40\,W}\)</td></tr>
+  <tr><td>Δ3</td><td>\(\boxed{d_{\max}=1{,}4\,m}\), \(\boxed{\Delta t=\pi/\sqrt{50}\,s}\)</td></tr>
+  <tr><td>Δ4</td><td>\(\boxed{m_{3,\min}=3\,kg}\)</td></tr>
+  <tr><td>Δ5</td><td>\(\boxed{P_{\mathrm{στ}}=-15\sqrt6/4\,W\approx-9{,}19\,W}\)</td></tr>
+  <tr><td>Ε1</td><td>\(\boxed{\Delta l=0}\)</td></tr>
+  <tr><td>Ε2</td><td>\(\boxed{T_1=10+50x}\), \(\boxed{T_2=20+200x}\)</td></tr>
+  <tr><td>Ε3</td><td>\(\boxed{A_{\max}=0{,}10\,m}\)</td></tr>
+  <tr><td>Ε4α</td><td>\(\boxed{a_B=10\,m/s^2}\)</td></tr>
+  <tr><td>Ε4β</td><td>\(\boxed{F_A=5\sqrt{333}/2\,N\approx45{,}62\,N}\)</td></tr>
+  <tr><td>Ε5</td><td>\(\boxed{dT_2/dt=-100\,N/s}\)</td></tr>
+</table>
+<div class="idea-box">
+  <div class="idea-title">💡 Για να θυμάσαι</div>
+  <p>Στις σύνθετες ασκήσεις ταλαντώσεων, το ασφαλέστερο είναι να μην ξεκινάμε από έναν τύπο, αλλά από τη φυσική κατάσταση του συστήματος.</p>
+  <p><strong>1.</strong> Ορίζουμε πρώτα τη θετική φορά και την απομάκρυνση από τη θέση ισορροπίας.</p>
+  <p><strong>2.</strong> Προσδιορίζουμε τη θέση ισορροπίας πριν γράψουμε την εξίσωση της ταλάντωσης.</p>
+  <p><strong>3.</strong> Χρησιμοποιούμε: \[ F_{\mathrm{επ}}=-Dx,\qquad \omega=\sqrt{\frac Dm},\qquad E=\frac12DA^2. \]</p>
+  <p><strong>4.</strong> Σε προβλήματα με νήματα ή επαφές ελέγχουμε πάντα: \[ T\ge0,\qquad N\ge0. \]</p>
+  <p><strong>5.</strong> Όταν εμφανίζονται δύο διαφορετικές κινήσεις συνδεδεμένες με τροχαλία, γράφουμε πρώτα τη γεωμετρική σχέση των μη εκτατών νημάτων και μετά τις δυναμικές εξισώσεις.</p>
+</div>
+<div class="solution-divider"></div>
+<div class="footer">
+  <strong>© Εκφώνηση / Αναλυτικές λύσεις:</strong> Παρμενίων Μανδραβέλης<br>
+  <strong>© Επιμέλεια Διαδραστικής Παρουσίασης:</strong> Τάσος Τζανόπουλος<br>
+  Γραπτή εξέταση στη Φυσική Γ΄ Λυκείου — Ταλαντώσεις · Σεπτέμβριος 2026
+</div>
+</div><!-- /hidden-content -->
+</div><!-- /physics-solutions -->
+<!-- ===== ΚΟΥΜΠΙ ΕΠΙΣΤΡΟΦΗΣ ΣΤΗΝ ΚΟΡΥΦΗ ===== -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+// ============================================================
+// ΕΜΦΑΝΙΣΗ ΟΛΟΚΛΗΡΟΥ ΤΟΥ ΠΕΡΙΕΧΟΜΕΝΟΥ
+// ============================================================
+function showFullContent() {
+  const hidden = document.getElementById('fullContent');
+  const btn = document.querySelector('.continue-btn');
+  if (hidden) {
+    hidden.classList.add('visible');
+    if (btn) {
+      btn.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      btn.style.opacity = '0';
+      btn.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        btn.style.display = 'none';
+      }, 400);
+    }
+    setTimeout(() => {
+      hidden.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+    if (window.MathJax && MathJax.typesetPromise) {
+      setTimeout(() => {
+        MathJax.typesetPromise().catch(function(err) {});
+      }, 300);
+    }
+  }
+}
+// ============================================================
+// ΕΜΦΑΝΙΣΗ / ΑΠΟΚΡΥΨΗ ΚΟΥΜΠΙΟΥ ΕΠΙΣΤΡΟΦΗΣ
+// ============================================================
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 600) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+// ============================================================
+// ΕΠΑΝΑΦΟΡΤΩΣΗ MATHJAX
+// ============================================================
+const observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (mutation.target.classList && mutation.target.classList.contains('visible')) {
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise().catch(function(err) {});
+      }
+    }
+  });
+});
+const targetNode = document.getElementById('fullContent');
+if (targetNode) {
+  observer.observe(targetNode, { attributes: true, attributeFilter: ['class'] });
+}
+if (window.MathJax && MathJax.typesetPromise) {
+  MathJax.typesetPromise().catch(function(err) {});
+}
+</script>
+</body>
+</html>
