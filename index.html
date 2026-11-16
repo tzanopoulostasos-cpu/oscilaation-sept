@@ -332,66 +332,9 @@ details.solution-details[open] summary::before {
 .section-intro .problem-figure {
   margin-bottom: 8px;
 }
-/* =========================================================
-   ΠΕΡΙΕΧΟΜΕΝΟ ΠΟΥ ΚΡΥΒΕΤΑΙ / ΕΜΦΑΝΙΖΕΤΑΙ
-========================================================= */
-.hidden-content {
-  display: none;
-  animation: fadeSlideIn 0.6s ease forwards;
-}
-.hidden-content.visible {
-  display: block;
-}
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* =========================================================
-   ΚΟΥΜΠΙ ΣΥΝΕΧΕΙΑΣ
-========================================================= */
-.continue-wrapper {
-  text-align: center;
-  margin: 30px 0 10px;
-}
-.continue-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 40px;
-  background: linear-gradient(135deg, #1e4a7a, #0f2b4a);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(30, 74, 122, 0.35);
-  font-family: inherit;
-}
-.continue-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 32px rgba(30, 74, 122, 0.45);
-  background: linear-gradient(135deg, #255a92, #143a5e);
-}
-.continue-btn:active {
-  transform: scale(0.98);
-}
-.continue-btn svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-  transition: transform 0.3s ease;
-}
-.continue-btn:hover svg {
-  transform: translateX(4px);
-}
+
+    
+    
 /* =========================================================
    ΚΟΥΜΠΙΑ ΛΗΨΗΣ (στο τέλος)
 ========================================================= */
@@ -562,12 +505,8 @@ details.solution-details[open] summary::before {
   .choice-list {
     margin-left: 20px;
   }
-  .continue-btn {
-    padding: 14px 24px;
-    font-size: 17px;
-    width: 100%;
-    justify-content: center;
-  }
+  
+    
   .download-btn {
     padding: 10px 18px;
     font-size: 14px;
@@ -621,8 +560,8 @@ mjx-container {
 }
 /* Εκτύπωση - απόκρυψη κουμπιών */
 @media print {
-  .continue-wrapper,
-  .continue-btn,
+ 
+    
   .download-section,
   .download-buttons,
   .download-btn,
@@ -753,17 +692,12 @@ mjx-container {
     </div>
   </details>
 </div>
-<!-- ===== ΚΟΥΜΠΙ ΣΥΝΕΧΕΙΑΣ ===== -->
-<div class="continue-wrapper">
-  <button class="continue-btn" onclick="showFullContent()">
-    <span>📖 Συνέχεια σε διαδραστική μορφή</span>
-    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-  </button>
-</div>
+
+    
 <!-- ============================================================ -->
 <!-- ===== ΥΠΟΛΟΙΠΟ ΠΕΡΙΕΧΟΜΕΝΟ (ΚΡΥΦΟ ΑΡΧΙΚΑ) ===== -->
 <!-- ============================================================ -->
-<div class="hidden-content" id="fullContent">
+
 <!-- ===== Α2 ===== -->
 <div class="problem-card">
   <div class="problem-header">Α2</div>
@@ -1574,67 +1508,24 @@ mjx-container {
   <strong>© Επιμέλεια Διαδραστικής Παρουσίασης:</strong> Τάσος Τζανόπουλος<br>
   Γραπτή εξέταση στη Φυσική Γ΄ Λυκείου — Ταλαντώσεις · Σεπτέμβριος 2026
 </div>
-</div><!-- /hidden-content -->
+
 </div><!-- /physics-solutions -->
 <!-- ===== ΚΟΥΜΠΙ ΕΠΙΣΤΡΟΦΗΣ ΣΤΗΝ ΚΟΡΥΦΗ ===== -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-// ============================================================
-// ΕΜΦΑΝΙΣΗ ΟΛΟΚΛΗΡΟΥ ΤΟΥ ΠΕΡΙΕΧΟΜΕΝΟΥ
-// ============================================================
-function showFullContent() {
-  const hidden = document.getElementById('fullContent');
-  const btn = document.querySelector('.continue-btn');
-  if (hidden) {
-    hidden.classList.add('visible');
-    if (btn) {
-      btn.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-      btn.style.opacity = '0';
-      btn.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        btn.style.display = 'none';
-      }, 400);
-    }
-    setTimeout(() => {
-      hidden.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 200);
-    if (window.MathJax && MathJax.typesetPromise) {
-      setTimeout(() => {
-        MathJax.typesetPromise().catch(function(err) {});
-      }, 300);
-    }
-  }
-}
-// ============================================================
-// ΕΜΦΑΝΙΣΗ / ΑΠΟΚΡΥΨΗ ΚΟΥΜΠΙΟΥ ΕΠΙΣΤΡΟΦΗΣ
-// ============================================================
-window.addEventListener('scroll', function() {
-  const btn = document.getElementById('backToTop');
-  if (window.scrollY > 600) {
-    btn.classList.add('visible');
-  } else {
+(function () {
+  var btn = document.querySelector('.back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 600) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }, { passive: true });
+
+  window.addEventListener('DOMContentLoaded', function () {
     btn.classList.remove('visible');
-  }
-});
-// ============================================================
-// ΕΠΑΝΑΦΟΡΤΩΣΗ MATHJAX
-// ============================================================
-const observer = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutation) {
-    if (mutation.target.classList && mutation.target.classList.contains('visible')) {
-      if (window.MathJax && MathJax.typesetPromise) {
-        MathJax.typesetPromise().catch(function(err) {});
-      }
-    }
   });
-});
-const targetNode = document.getElementById('fullContent');
-if (targetNode) {
-  observer.observe(targetNode, { attributes: true, attributeFilter: ['class'] });
-}
-if (window.MathJax && MathJax.typesetPromise) {
-  MathJax.typesetPromise().catch(function(err) {});
-}
+})();
 </script>
 </body>
 </html>
